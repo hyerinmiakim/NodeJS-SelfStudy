@@ -17,11 +17,10 @@ func1('hello121', 444); //함수 선언 후, 반드시 호출해주어야 함
 // ---------------------- Array ------------------------------- //
 var array = ['hyerin',, 'hello']
 alert(array);	// 문자열 처럼 	hyerin,,hello가 나옴
-	alert(array[1]) // undefined
+alert(array[1]) // undefined
 alert(array[2]) 
 
-
-	function func2 () {
+function func2 () {
 		var array2 = ['this is array', 'hello', 'bye']
 			//return array2;
 			return ['hlkim','javascript', undefined]
@@ -36,7 +35,12 @@ document.write('<br />')
 for(i = 0; i < ret_val.length; i++)
 {
 	document.write(ret_val[i].toUpperCase())	//모두 대문자로
-		document.write('<br />')
+	document.write('<br />')
+}
+
+for (var idx in ret_val) {
+	console.log(idx); //인덱스가 표시 (0,1,2 .. )
+	console.log(ret_val[idx])	//배열 원소가 표시
 }
 
 function func2_array () {
