@@ -116,3 +116,20 @@ for(var i = 0; i < process.length; i++)
   input1 = process[i](input1) //input이 이전 function[input]에 누적되어 들어감 (for문 안에 있으면 노 )
   alert(input1);
 }
+
+/* 콜백을 이요한 Ajax 비동기 처리 
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $.get('./datasource.json.js', function(result){ // $: jquery의 객체를 의미
+        console.log(result);	// datasource.json.js를 가져와서 읽은 값을 객체로 만들고, 
+        						// 해당 결과를 console에 뿌려줌.
+    }, 'json');
+</script>
+</body>
+</html>
+*/
