@@ -35,3 +35,21 @@ document.write(p1.introduce()+"<br />");
 
 var p2 = new Person('leezche');
 document.write(p2.introduce());
+
+/* this */
+function func(){
+  if(window === this){  // 웹 페이지에서는 전역 객체(window)가 func의 객체이다
+      console.log("window === this");
+  }
+}
+func(); 
+
+/* 메소드에서의 호출 */
+var o = {
+  func : function(){
+      if(o === this){
+          console.log("o === this");
+      }
+  }
+}
+o.func();
