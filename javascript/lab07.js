@@ -53,3 +53,69 @@ var o = {
   }
 }
 o.func();
+
+/* new의 존재 */
+var funcThis = null; 
+ 
+function Func(){
+    funcThis = this;
+}
+
+/* 0. new 없이 호출 */
+var o1 = Func();
+if(funcThis === window){
+    document.write('window <br />');
+}
+ 
+/* 1. new와 호출*/
+var o2 = new Func();
+if(funcThis === o2){
+    document.write('o2 <br />');
+}
+
+/* Apply */
+var o = {}	//객체 생성
+var p = {}
+function func(){
+    switch(this){
+        case o:
+            document.write('o<br />');
+            break;
+        case p:
+            document.write('p<br />');
+            break;
+        case window:
+            document.write('window<br />');
+            break;          
+    }
+}
+func();	// 함수로서 호출. 객체: window
+func.apply(o);	// func의 this가 객체 o를 가리키도록 생성하는 것. 
+func.apply(p);
+
+/* call */
+type = "zero"; 
+var type1 = { type: "one" }; 
+var type2 = { type: "two" }; 
+function getType() { 
+    console.log(this.type); 
+    this.type = "hello";	// this의 type 변경
+}
+getType(); 	// zero
+getType.call(this);	//zero 
+getType.call(type1);	//one
+getType.call(type2);	//two
+
+/* bind */
+var obj = {
+  string: 'zero',
+  yell: function() {
+    alert(this.string);
+  }
+};
+var obj2 = {
+  string: 'what?'
+};
+var yell2 = obj.yell.bind(obj2);
+yell2(); // 'what?'
+
